@@ -1,0 +1,35 @@
+{%extends "base.html" %}
+{% block day %}
+<div class="container">
+
+	<form method="post">
+		{% csrf_token %}
+		 {{patient.fio}}
+		 <div class="form-group">
+			<div class="col-md-6">
+				<label>Жалобы:</label>
+				{{form.complaints}}
+			</div>
+			<div class="col-md-3">
+				<label>Анамнез:</label>
+				{{form.anamnes}}
+			</div>
+			<div class="col-md-3">
+				<label>Общий осмотр</label>
+				{{form.StLocalis}}
+			</div>
+			<div class="col-6">
+				<label>Предварительный диагноз:</label>
+				{{form.PreDiagnose}}
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Сохранить</button>
+			</div>
+
+		</div>
+	</form>
+	</div>
+</div>
+
+{%endblock%}
+

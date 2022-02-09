@@ -1,0 +1,167 @@
+  {%extends "base.html" %}
+  {% block cardpat %}
+<div class="container">
+  <h3>Паспортные данные</h3>
+  <div class="row align-items-start mb-3">
+    <div class="col border">
+      {{patient.fio}}
+    </div>
+    <div class="col border">
+      {{patient.birthday}}
+    </div>
+    <div class="col border">
+      {{patient.city}}
+    </div>
+  </div>
+  <div class="row align-items-center mb-3">
+    <div class="col border">
+      {{patient.AdrLive}}
+    </div>
+  </div>  
+  <div class="container">  
+    <h3>Общий осмотр</h3>
+     <div class="row align-items-start mb-3">
+    <div class="col border">
+      {{exam.complaints}}
+    </div>
+    <div class="col border">
+      {{exam.anamnes}}
+    </div>
+  </div>
+  <div class="row align-items-end mb-3">
+    <div class="col border">
+      {{exam.StLocalis}}
+    </div>
+    <div class="col border">
+      {{exam.PreDiagnose}}
+    </div>
+    <div class="col border">
+      {{patient.pk}}
+    </div>
+  </div>
+  </div>
+</div>
+
+  <div class="container">
+
+    <h3>Зубная формула</h3>
+    <div class="table-responsive">
+    <table class="table table-bordered border-primary">
+      <thead>
+      <tr>
+        <th scope="col">18</th>
+        <th scope="col">17</th>
+        <th scope="col">16</th>
+        <th scope="col">15</th>
+        <th scope="col">14</th>
+        <th scope="col">13</th>
+        <th scope="col">12</th>
+        <th scope="col">11</th>
+        <th scope="col">21</th>
+        <th scope="col">22</th>
+        <th scope="col">23</th>
+        <th scope="col">24</th>
+        <th scope="col">25</th>
+        <th scope="col">26</th>
+        <th scope="col">27</th>
+        <th scope="col">28</th>
+      </tr>
+    </thead>
+    <tr>
+        <td scope="col">{{formula.tooth18}}</td>
+        <td scope="col">{{formula.tooth17}}</td>
+        <td scope="col">{{formula.tooth16}}</td>
+        <td scope="col">{{formula.tooth15}}</td>
+        <td scope="col">{{formula.tooth14}}</td>
+        <td scope="col">{{formula.tooth13}}</td>
+        <td scope="col">{{formula.tooth12}}</td>
+        <td scope="col">{{formula.tooth11}}</td>
+        <td scope="col">{{formula.tooth21}}</td>
+        <td scope="col">{{formula.tooth22}}</td>
+        <td scope="col">{{formula.tooth23}}</td>
+        <td scope="col">{{formula.tooth24}}</td>
+        <td scope="col">{{formula.tooth25}}</td>
+        <td scope="col">{{formula.tooth26}}</td>
+        <td scope="col">{{formula.tooth27}}</td>
+        <td scope="col">{{formula.tooth28}}</td>
+      </tr>
+      <tr>
+        <td scope="col">{{formula.tooth48}}</td>
+        <td scope="col">{{formula.tooth47}}</td>
+        <td scope="col">{{formula.tooth46}}</td>
+        <td scope="col">{{formula.tooth45}}</td>
+        <td scope="col">{{formula.tooth44}}</td>
+        <td scope="col">{{formula.tooth43}}</td>
+        <td scope="col">{{formula.tooth42}}</td>
+        <td scope="col">{{formula.tooth41}}</td>
+        <td scope="col">{{formula.tooth31}}</td>
+        <td scope="col">{{formula.tooth32}}</td>
+        <td scope="col">{{formula.tooth33}}</td>
+        <td scope="col">{{formula.tooth34}}</td>
+        <td scope="col">{{formula.tooth35}}</td>
+        <td scope="col">{{formula.tooth36}}</td>
+        <td scope="col">{{formula.tooth37}}</td>
+        <td scope="col">{{formula.tooth38}}</td>
+        
+    </tr>
+    <thead>
+    <tr>
+        <th scope="col">48</th>
+        <th scope="col">47</th>
+        <th scope="col">46</th>
+        <th scope="col">45</th>
+        <th scope="col">44</th>
+        <th scope="col">43</th>
+        <th scope="col">42</th>
+        <th scope="col">41</th>
+        <th scope="col">31</th>
+        <th scope="col">32</th>
+        <th scope="col">33</th>
+        <th scope="col">34</th>
+        <th scope="col">35</th>
+        <th scope="col">36</th>
+        <th scope="col">37</th>
+        <th scope="col">38</th>
+
+      </tr>
+    </thead>
+    </table>
+    <a href="{% url 'EditFormula' patient.pk %}">Редактировать формулу</a>
+    <a href="{% url 'AnalizFormula' patient.pk %}">Анализ</a>
+    
+  </div>
+  </div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      
+    {% for photo in photo %}
+    <div class="col">
+    
+        <div class="col-md-8">
+    <img src="{{  photo.photo.url }}" class="card-img-top" alt="...">
+  </div>
+  
+  </div>
+  {% endfor %}
+</div>
+<a href="{% url 'CreatePhoto' patient.pk %}">Добавить фото</a>
+</div>
+    </div>
+<table class="table">
+  {% for therapy in therapy %}
+  <thead>
+    <tr>
+      <th scope="col">Дата лечения</th>
+      <th scope="col">Дневник лечения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{therapy.created_at}}</td>
+      <td>{{therapy.treatment}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+  </div>
+  {% endblock %}

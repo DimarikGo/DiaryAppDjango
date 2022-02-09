@@ -1,0 +1,39 @@
+{%extends "base.html" %}
+{% block day %}
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Фамилия Имя Отчество:</label>
+                {{form.fio}}
+            </div>
+            <div class="col-md-3">
+                <label>Дата рождения:</label>
+                {{form.birthday}}
+            </div>
+            <div class="col-md-2">
+                <label>Город</label>
+                {{form.city}}
+            </div>
+            <div class="col-md-4">
+                <label>Адрес проживания</label>
+                {{form.AdrLive}}
+            </div>
+            <div class="col-4">
+                <label>Номер телефона</label>
+                {{form.mobile}}
+            </div>
+            <div class="col-md-4">
+                <label>Email</label>
+                {{form.email}}
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,16 @@
+	{%extends "base.html" %}
+	{% block day %}
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					{{form.photo}}
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Сохранить</button>
+			</div>
+		</form>
+	</div>
+	{% endblock %}

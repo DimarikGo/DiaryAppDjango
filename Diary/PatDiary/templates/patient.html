@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+{% block patient %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Дата рождения</th>
+      <th scope="col">Город</th>
+      <th scope="col">Адрес проживания</th>
+      <th scope="col">Номер телефона</th>
+      <th scope="col">ID</th>
+      <th scope="col">Удалить</th>
+    </tr>
+  </thead>
+  {% for patient in patient%}
+ 
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td><a class="nav-link" href="{% url 'Viewcard' patient.pk %}">{{patient.fio}}</a></td>
+      <td class="patient">{{patient.birthday}}</td>
+      <td>{{patient.city}}</td>
+      <td>{{patient.AdrLive}}</td>
+      <td>{{patient.mobile}}</td>
+      <td>{{patient.pk}}</td>
+      <td><a href="{% url 'DeletePat' patient.pk %}">X</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<!-- <script type="text/javascript">
+  var divPat = document.querySelector('td.patient')
+  divPat.innerHTML ='<td style="color: blue;"> ssssss</td>'
+  console.log(divPat.innerHTML)
+</script> -->
+{% endblock %}
